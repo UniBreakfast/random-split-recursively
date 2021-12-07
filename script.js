@@ -31,6 +31,6 @@ function makeBlock(options) {
 
 function normalize(options) {
   for (const prop in options) {
-    if (typeof options[prop] = 'number') options[prop] += 'px'
+    if (typeof options[prop] == 'number') options[prop] += 'px'
   }
 }

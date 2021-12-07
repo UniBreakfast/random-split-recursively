@@ -14,5 +14,6 @@ document.body.append(makeBlock(options))
 function makeBlock(options) {
   const {borderWidth, borderColor, backgroundColor, width, height} = options 
   const block = document.createElement('div')
-  Object.assign(block.style, defaultOptions, options) 
+  Object.assign(block.style, defaultOptions, options)
+  return block 
 }

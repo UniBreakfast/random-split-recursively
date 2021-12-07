@@ -11,7 +11,12 @@ const options = {
   borderWidth: '3px',
 }
 
-document.body.append(makeBlock(options))
+const b0 = makeBlock(options)
+document.body.append(b0)
+
+Object.assign(options, {width: '100px', height: '130px'})
+
+b0.append(makeBlock(options), makeBlock(options))
 
 function makeBlock(options) {
   const {borderWidth, borderColor, backgroundColor, width, height} = options 

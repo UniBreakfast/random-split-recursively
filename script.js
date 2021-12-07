@@ -3,6 +3,7 @@ const defaultOptions = {
   borderStyle: 'solid',
   borderWidth: '1px',
   borderColor: 'black',
+  padding: '3px',
 }
 
 const options = {

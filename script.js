@@ -35,4 +35,5 @@ function normalize(options) {
   for (const prop in options) {
     if (typeof options[prop] == 'number') options[prop] += 'px'
   }
+  return options
 }

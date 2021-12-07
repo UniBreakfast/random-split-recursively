@@ -1,4 +1,5 @@
 const defaultOptions = {
+  boxSizing: 'border-box',
   borderStyle: 'solid',
   borderWidth: '1px',
   borderColor: 'black',
@@ -7,6 +8,7 @@ const defaultOptions = {
 const options = {
   width: innerWidth - 16 + 'px',
   height: innerHeight - 16 + 'px',
+  borderWidth: '3px',
 }
 
 document.body.append(makeBlock(options))

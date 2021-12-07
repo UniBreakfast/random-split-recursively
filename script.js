@@ -1,3 +1,5 @@
+debugger
+
 const defaultOptions = {
   display: 'flex',
   boxSizing: 'border-box',

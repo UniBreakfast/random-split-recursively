@@ -13,12 +13,14 @@ const options = {
   borderWidth: 7,
 }
 
-const b0 = makeBlock(options)
-document.body.append(b0)
-
-Object.assign(options, {width: 100, height: 130})
-
-b0.append(makeBlock(options), makeBlock(options))
+try {
+  const b0 = makeBlock(options)
+  document.body.append(b0)
+  Object.assign(options, {width: 100, height: 130})
+  b0.append(makeBlock(options), makeBlock(options))
+} catch (err) {
+  document.body.append(err.message)
+}
 
 function makeBlock(options) {
   const {borderWidth, borderColor, backgroundColor, width, height} = options 

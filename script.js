@@ -38,3 +38,23 @@ function normalize(options) {
   }
   return options
 }
+
+function splitRecursively(block, options, minSpace=defaultOptions.padding*2, depth=Infinity, probability=1) {
+  if (!depth) return
+  let {width, height, borderWidth, padding} = block.style
+  width = parseInt(width)
+  height = parseInt(height)
+  borderWidth = parseInt(borderWidth)
+  padding = parseInt(padding)
+  // choose smaller side 
+  // decide to split or not
+  // recalculate options 
+  // make and append block(s)
+  // recursive call if depth allows  
+  const willSplit = Math.random() < probability 
+  if (willSplit) 
+}
+
+
+
+

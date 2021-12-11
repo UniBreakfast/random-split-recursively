@@ -17,10 +17,9 @@ const options = {
 }
 
 try {
-  const b0 = makeBlock(options)
-  document.body.append(b0)
-  Object.assign(options, {width: 100, height: 130})
-  b0.append(makeBlock(options), makeBlock(options))
+  const block = makeBlock(options)
+  document.body.append(block)
+  splitRecursively(block, options, 30, 4, 0.8)
 } catch (err) {
   document.body.append(err.message)
 }

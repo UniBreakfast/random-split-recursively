@@ -6,7 +6,8 @@ const defaultOptions = {
   borderStyle: 'solid',
   borderWidth: 1,
   borderColor: 'black',
-  margin: 7,
+  padding: 7,
+  gap: 7
 }
 
 const options = {

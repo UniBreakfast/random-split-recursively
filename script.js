@@ -83,7 +83,6 @@ function splitVertically(el, width) {
 
   el.append(child1, child2);
   el.classList.add('row');
-  el.dataset.width = width;
 }
 
 function splitHorizontally(el, height) {
@@ -97,7 +96,6 @@ function splitHorizontally(el, height) {
   child2.style.height = `${height2}px`;
 
   el.append(child1, child2);
-  el.dataset.height = height;
 }
 
 function getContentSize(el) {

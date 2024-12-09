@@ -26,7 +26,7 @@ function handleClick(e) {
     pause = false;
 
     const leaves = document.querySelectorAll(':empty');
-console.log(leaves);
+    
     for (const leave of leaves) {
       splitRecursively(leave);
     }

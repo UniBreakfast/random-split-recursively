@@ -4,6 +4,8 @@
 
 ### Click to remove elements. Wait for a refill
 
+![image](https://github.com/user-attachments/assets/81ffce8a-16a7-4fa6-bf17-506f5b4418a5)
+
 ![image](https://github.com/user-attachments/assets/9154af66-66df-4545-8b10-a875113f30d5)
 
 ![image](https://github.com/user-attachments/assets/5965e410-8873-4c8b-8eed-7a65f7a370d5)

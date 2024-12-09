@@ -1,5 +1,6 @@
 :root {
   --line: 8px;
+  --time: 1s;
 }
 
 html {
@@ -15,6 +16,10 @@ html {
 div {
   border: var(--line) solid currentColor;
   color: hsl(240, 80%, 35%);
+
+  &.transparent {
+    opacity: 0;
+  }
 
   div {
     color: hsl(220, 80%, 35%);
@@ -74,6 +79,7 @@ div {
 }
 
 body, div {
+  transition: var(--time);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

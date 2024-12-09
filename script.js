@@ -1,59 +1,75 @@
-debugger
+const maxDepth = undefined //|| 2;
+const lineWidth = 6;
+const minSize = lineWidth * 4;
 
-const defaultOptions = {
-  display: 'flex',
-  boxSizing: 'border-box',
-  borderStyle: 'solid',
-  borderWidth: 1,
-  borderColor: 'black',
-  padding: 7,
-  gap: 7
-}
+body.style.setProperty('--line', `${lineWidth}px`);
 
-const options = {
-  width: innerWidth - 16,
-  height: innerHeight - 16,
-  borderWidth: 7,
-}
+splitRecursively(body, maxDepth);
 
-try {
-  const block = makeBlock(options)
-  document.body.append(block)
-  splitRecursively(block, options, 30, 4, 0.8)
-} catch (err) {
-  document.body.append(err.message)
-}
+function splitRecursively(el, depth = Infinity) {
+  if (depth <= 0) return;
 
-function makeBlock(options) {
-  const {borderWidth, borderColor, backgroundColor, width, height} = options 
-  const block = document.createElement('div')
-  Object.assign(block.style, normalize(defaultOptions), normalize(options))
-  return block 
-}
+  const { width, height } = getContentSize(el);
+  const gap = parseFloat(getComputedStyle(el).gap);
+  const vertical = width > height;
+  const longSide = vertical ? width : height;
+  const shortSide = vertical ? height : width;
+  const willSplit = longSide > minSize * 2 + gap
+    && shortSide > minSize;
 
-function normalize(options) {
-  for (const prop in options) {
-    if (typeof options[prop] == 'number') options[prop] += 'px'
+  el.dataset.sizes = `longside ${longSide}px shortside ${shortSide}px`;
+
+  if (willSplit) {
+    if (vertical) splitVertically(el, width - gap);
+    else splitHorizontally(el, height - gap);
+
+    for (const child of el.children) {
+      splitRecursively(child, depth - 1);
+    }
   }
-  return options
 }
 
-function splitRecursively(block, options, minSpace=defaultOptions.padding*2, depth=Infinity, probability=1) {
-  if (!depth) return
-  let {width, height, borderWidth, padding} = block.style
-  width = parseInt(width)
-  height = parseInt(height)
-  borderWidth = parseInt(borderWidth)
-  padding = parseInt(padding)
-  // choose smaller side 
-  // decide to split or not
-  // recalculate options 
-  // make and append block(s)
-  // recursive call if depth allows  
-  const willSplit = Math.random() < probability 
-  if (willSplit) 
+function splitVertically(el, width) {
+  const child1 = document.createElement('div');
+  const child2 = document.createElement('div');
+  // const width1 = width * 0.5;
+  const maxWidth = width - 2 * minSize;
+  const width1 = Math.floor(Math.random() * maxWidth) + minSize;
+  const width2 = width - width1;
+
+  child1.style.width = `${width1}px`;
+  child2.style.width = `${width2}px`;
+
+  el.append(child1, child2);
+  el.classList.add('row');
+  el.dataset.width = width;
 }
 
+function splitHorizontally(el, height) {
+  const child1 = document.createElement('div');
+  const child2 = document.createElement('div');
+  // const height1 = height * 0.5;
+  const maxHeight = height - 2 * minSize;
+  const height1 = Math.floor(Math.random() * maxHeight) + minSize;
+  const height2 = height - height1;
 
+  child1.style.height = `${height1}px`;
+  child2.style.height = `${height2}px`;
 
+  el.append(child1, child2);
+  el.dataset.height = height;
+}
 
+function getContentSize(el) {
+  const {
+    paddingTop, paddingRight, paddingBottom, paddingLeft
+  } = getComputedStyle(el);
+
+  const width = el.clientWidth 
+    - parseFloat(paddingLeft) - parseFloat(paddingRight);
+
+  const height = el.clientHeight 
+    - parseFloat(paddingTop) - parseFloat(paddingBottom);
+
+  return { width, height };
+}

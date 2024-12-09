@@ -1,0 +1,92 @@
+:root {
+  --line: 8px;
+}
+
+html {
+  height: 100%;
+  color: #444;
+
+  body {
+    height: 100%;
+    margin: 0;
+  }
+}
+
+div {
+  border: var(--line) solid currentColor;
+  color: hsl(240, 80%, 35%);
+
+  div {
+    color: hsl(220, 80%, 35%);
+
+    div {
+      color: hsl(200, 80%, 35%);
+
+      div {
+        color: hsl(180, 80%, 35%);
+
+        div {
+          color: hsl(160, 80%, 35%);
+
+          div {
+            color: hsl(140, 80%, 35%);
+
+            div {
+              color: hsl(120, 80%, 35%);
+
+              div {
+                color: hsl(100, 80%, 35%);
+
+                div {
+                  color: hsl(80, 80%, 35%);
+
+                  div {
+                    color: hsl(60, 80%, 35%);
+
+                    div {
+                      color: hsl(40, 80%, 35%);
+
+                      div {
+                        color: hsl(20, 80%, 35%);
+
+                        div {
+                          color: hsl(20, 40%, 25%);
+                          
+                          div {
+                            color: hsl(20, 00%, 35%);
+
+                            div {
+                              color: hsl(20, 00%, 55%);
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+body, div {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--line);
+  padding: var(--line);
+  box-shadow: var(--line) var(--line) var(--line) currentColor,
+    inset 0 0 calc(2 * var(--line)) currentColor;
+
+  &.row {
+    flex-direction: row;
+  }
+
+  &:empty {
+    /* padding: calc(var(--line) / 2); */
+  }
+}

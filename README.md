@@ -2,7 +2,10 @@
 
 ## Demo scene, splits empty space in two subspaces, with altitude colors
 
-### Click to remove elements. Wait for a refill
+### * Click to remove elements. Wait for a refill
+### ** Refresh to randomize line width and amount
+### *** Press "C" to count rectangles
+
 
 ![image](https://github.com/user-attachments/assets/73c918e9-c7aa-47f1-b309-57ce091cc513)
 
